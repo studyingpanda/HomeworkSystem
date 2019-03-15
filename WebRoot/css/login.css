@@ -1,0 +1,52 @@
+	/*login.css*/
+	/*应用于全部内容的格式*/
+	*{
+    	margin:0px;
+    	padding:0px;
+    	font-size:12px;
+    	font-family:"宋体";
+    	width:auto;
+    }
+    /*设定顶部样式*/
+    #top{
+    	height:70px;/*一般顶部标题栏的高度差不多70px*/
+    	line-height:70px;/*保证标题栏文字居中显示（从上往下方向）*/
+    	font-family:"微软雅黑";/*标题栏使用微软雅黑，高端大气上档次*/
+    	font-size:32px;/*标题栏字体要大*/
+    	color:#DE7D74;/*这个颜色注意了，是图片中较深的粉红色*/
+    	border-bottom: medium solid #B0B2B6;/*顶部下方设置了一个边框，用以分割顶部和中间内容区域*/
+    	padding-left:16px;/*顶部左侧内边距16px，避免文字太靠左边*/
+    	font-weight:600;/*文字加粗，具体多少好看慢慢调节*/
+    }
+    #mid{
+    	height:500px;/*电脑高度一般600px、768px或者更多，去掉70px顶部和很少的底部，留个500px算合理*/
+    	text-aligh:center;/*内容在中间显示*/
+    	background-image:url(../images/back.jpg);/*把背景图片设置进来*/
+    	background-size: 100% 100%;/*背景图片铺满整个区域，这样好看*/
+    }
+    #login_input{
+		border:thin solid #FFEFD6;
+    	width:400px;
+    	height:240px;
+    	margin:32px auto;
+    	text-align:center;
+    }
+    .row{
+    	width:100%;
+    	margin:32px auto;
+    }
+    .row span{
+    	width:60px;
+    }
+    .row input{
+    	width:120px;
+    }
+    .row .submit{
+   		border-radius:8px;
+   		background-color: #FFE5D5;
+    }
+    /*底部，很简单，没啥好说的*/
+    #bottom{
+    	margin-top:16px;
+    	text-align:center;
+    }

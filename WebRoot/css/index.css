@@ -1,0 +1,78 @@
+	/*css/index.css*/
+	/*星号表示选择全部，设置外边距0，内边距0，字体大小12px，宋体*/
+    *{
+    	margin:0px;
+    	padding:0px;
+    	font-size:12px;
+    	font-family:"宋体";
+    }
+    /*整个body区域背景色为#F5F5F5，这个很简单，自己下载个取色器，找个漂亮的网页，取个颜色就行*/
+    body {
+		background-color: #FCFCFC;
+	}
+	/*在top、left、right外面套用一层main是为了控制宽度，并且整体居中*/
+	#main{
+		width:1000px;
+		margin:0px auto;
+		
+	}
+	/*宽度占满它爹的宽度，高度64px是瞎试的，不好看再调整，猫哥喜欢用16px、32px、64px、128px这些，你懂的。
+	背景色猫哥继续取色器
+	line-height表示文字占用的高度，它也是64那就是文字占用高度跟top区域高度是一样的嘛，所以文字就居中了*/
+    #top{
+    	width:100%;
+    	height:64px;
+    	background-color:#000000;
+    	line-height:64px;  	
+    }
+    /*文字颜色取色器，标题部分啊文字用微软雅黑，大气！*/
+    #top_title{
+    	line-height:64px;
+    	font-family:"微软雅黑";
+    	color:#FFFFFF;
+    	float:left;
+    	font-size:32px;
+    	margin-left:16px;
+    }
+    /*颜色依然是自己取色的*/
+    #top_info{
+    	color:#71777D;
+    	float:right;
+    	line-height:64px;
+    	font-size:16px;
+    	margin-right:16px;
+    }
+    /*宽度占200px差不多了吧
+    float表示漂浮，left的话就是靠左了，所以这个left区域就得靠左飘飘了
+        内部的东西跟边距有点距离好看点，暂时定为10px，上下左右都是哦*/
+    #left{
+    	width:200px;
+    	height:536px;/*猫哥认为600-64=536*/
+    	float:left;
+    	background-color:#EEEEEE;
+    	padding:10px;
+    }
+    /*调整id=left的div中的ul标签下的li标签的样式为上边距10px，左边距15px*/
+    #left ul li{
+    	margin:10px 0px 0px 15px;
+    }
+    /*注意逗号表示同时设置两组对象的CSS属性
+    a:link表示未访问的链接,a:visited表示已访问的链接，颜色凭爱好了*/
+    #left a:link, #left a:visited {
+		color: #333333;
+		text-decoration:none;/*不要下划线*/
+	}
+	/*a:hover表示鼠标悬停的链接,a:active表示被选择的链接*/
+	#left a:hover, #left a:active {
+		color: #0AA770;
+		text-decoration:none;
+	}
+    /*同理right向右飘*/
+    #right{
+    	width:760px;/*1000-200-10*4=760,此处一定要注意padding的内容会拓宽div整体宽度，有志于前端的可以专门去研究下*/
+    	min-width:600px;
+    	height:536px;/*猫哥认为600-64=536*/
+    	float:right;
+    	background-color:#FFFFFF;
+    	padding:10px;
+    }

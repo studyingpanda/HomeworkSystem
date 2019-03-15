@@ -1,0 +1,37 @@
+/*table.css*/
+/* 以下为表格美工*/
+.table_theme1 thead, .table_theme1 tr {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: rgb(230, 189, 189);
+}
+.table_theme1 {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(230, 189, 189);
+}	
+/* Padding and font style */
+.table_theme1 td, .table_theme1 th {
+	padding: 5px 10px;
+	font-size: 12px;
+	font-family: Verdana;
+	color: rgb(177, 106, 104);
+}
+/* Alternating background colors */
+.table_theme1 tr:nth-child(even) {
+	background: rgb(238, 211, 210)
+}
+.table_theme1 tr:nth-child(odd) {
+	background: .FFF
+}
+  	/*注意逗号表示同时设置两组对象的CSS属性
+    a:link表示未访问的链接,a:visited表示已访问的链接，颜色凭爱好了*/
+    .table_theme1 tr td a:link, .table_theme1 tr td a:visited {
+		color: #0000EE;
+		text-decoration:none;/*不要下划线*/
+	}
+	/*a:hover表示鼠标悬停的链接,a:active表示被选择的链接*/
+	.table_theme1 tr td a:hover, .table_theme1 tr td a:active {
+		color: #59A827;
+		text-decoration:none;
+	}

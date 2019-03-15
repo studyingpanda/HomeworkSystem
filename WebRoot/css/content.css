@@ -1,0 +1,22 @@
+	/*content.css*/
+	/*一定需要注意，该页面因为和index.jsp有嵌套关系，
+        所以通过id选取元素时，id千万别和index.jsp中重名了
+ 	其余部分之前都讲过了，不再详述*/
+    #content_top{
+    	height:30px;
+    	font-family:"微软雅黑";
+    	font-size:16px;
+   		border-bottom: 1px solid #D4D5D7;
+    }
+    #content_mid{
+    	height:400px;
+		margin-top:5px;
+    }
+    #content_bottom{
+    	background-color:#D4D5D7;
+    	margin:5px auto;
+    	width:240px;
+    	height:20px;	
+    	line-height:20px;
+    	text-align:center;
+    }
