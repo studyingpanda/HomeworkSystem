@@ -3,7 +3,7 @@
 ## 系列文章链接地址：
 
 [慕课网](https://www.imooc.com/article/16001).
-[CSDN](https://blog.csdn.net/woshisangsang/article/category/6564033).
+[CSDN](https://blog.csdn.net/woshisangsang/category_6780470.html).
 
 ## 必须读的后话：
 #### 这部分文字是写完《JSP+Servlet培训班作业管理系统》很久后发布的，主要是因为当时写的时候是随性写的，想到哪写到哪儿，以至于前期写的非常适合新手学习，后期跑偏了非常不适合新手看，并且内容实现的不全面，一些常用的功能如权限管理、数据导入/导出、表格数据的搜索也都没有涉及。
