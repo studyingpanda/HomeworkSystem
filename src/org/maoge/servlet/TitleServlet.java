@@ -1,7 +1,6 @@
 package org.maoge.servlet;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -51,10 +50,18 @@ public class TitleServlet extends HttpServlet {
 			for (Selection selection : selections) {
 				Job job = new Job();
 				job.setJobTitle(newId);
-				job.setJobUser(loginUser.getUserId());
+				job.setJobUser(selection.getSelectionUser());
 				job.setJobTime(TimeUtils.getNowSqlTime());
 				jobDao.add(job);
 			}
+		} else if (method.equals("titleEdit")) {// 编辑
+			Title title = new Title();
+			title.setTitleId(Integer.parseInt(request.getParameter("titleId")));
+			title.setTitleContent(request.getParameter("titleContent"));
+			title.setTitleCourse(Integer.parseInt(request.getParameter("titleCourse")));
+			title.setTitleTime(request.getParameter("titleTime"));
+			// 保存到数据库
+			titleDao.update(title);
 		}
 		// 携带最新用户数据到人员管理页面
 		request.setAttribute("titles", titleDao.getTitlesByUserId(loginUser.getUserId()));

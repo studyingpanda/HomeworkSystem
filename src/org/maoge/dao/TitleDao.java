@@ -3,12 +3,14 @@ package org.maoge.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import org.maoge.model.Course;
 import org.maoge.model.Title;
 import org.maoge.utils.DbUtils;
 
@@ -16,6 +18,32 @@ import org.maoge.utils.DbUtils;
  * 作业题目访问类
  */
 public class TitleDao {
+
+	/**
+	 * 通过id获取
+	 */
+	public Title getById(String titleId) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = DbUtils.getConnection();
+			String sql = "select * from title where title_id=?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, titleId);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				return makeOneTitle(rs);
+			} else {
+				return null;
+			}
+		} catch (SQLException e) {
+			System.err.println(e.getMessage());
+			return null;
+		} finally {
+			DbUtils.releaseConnection(rs, ps, conn);
+		}
+	}
 
 	/**
 	 * 通过userId获取对应作业题目
@@ -52,7 +80,7 @@ public class TitleDao {
 		try {
 			conn = DbUtils.getConnection();
 			String sql = "insert into title(title_content,title_course,title_time)values(?,?,?)";
-			ps = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+			ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, title.getTitleContent());
 			ps.setInt(2, title.getTitleCourse());
 			ps.setString(3, title.getTitleTime());
@@ -120,7 +148,14 @@ public class TitleDao {
 		title.setTitleContent(rs.getString("title_content"));
 		title.setTitleCourse(rs.getInt("title_course"));
 		title.setTitleTime(rs.getString("title_time"));
-		if (rs.getString("course_name") != null) {
+		// 判断是否有course_name
+		Set<String> columnNameSet = new HashSet<String>();
+		ResultSetMetaData rsMeta = rs.getMetaData();
+		int columnCount = rsMeta.getColumnCount();
+		for (int i = 1; i <= columnCount; i++) {
+			columnNameSet.add(rsMeta.getColumnLabel(i));
+		}
+		if (columnNameSet.contains("course_name")) {
 			title.setTitleCourseName(rs.getString("course_name"));
 		}
 		return title;
@@ -140,8 +175,10 @@ public class TitleDao {
 			ps.setString(1, title.getTitleContent());
 			ps.setInt(2, title.getTitleCourse());
 			ps.setString(3, title.getTitleTime());
+			ps.setInt(4, title.getTitleId());
 			return ps.executeUpdate();
 		} catch (SQLException e) {
+			System.err.println(e.getMessage());
 			return 0;
 		} finally {
 			DbUtils.releaseConnection(rs, ps, conn);

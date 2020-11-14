@@ -34,7 +34,7 @@ public class CourseServlet extends HttpServlet {
 			course.setCourseName(request.getParameter("courseName"));
 			course.setCourseUser(loginUser.getUserId());
 			courseDao.add(course);
-		} else if (method.equals("courseEdit")) {// ±‡º≠”√ªß
+		} else if (method.equals("courseEdit")) {// ±‡º≠
 			Course course = new Course();
 			course.setCourseId(Integer.parseInt(request.getParameter("courseId")));
 			course.setCourseUser(loginUser.getUserId());

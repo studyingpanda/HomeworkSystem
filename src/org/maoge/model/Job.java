@@ -10,6 +10,18 @@ public class Job {
 	private String jobTime;
 	private String jobContent;
 	private String jobScore;
+	/**
+	 * ÈßÓà×Ö¶Î
+	 */
+	private String jobUserName;
+
+	public String getJobUserName() {
+		return jobUserName;
+	}
+
+	public void setJobUserName(String jobUserName) {
+		this.jobUserName = jobUserName;
+	}
 
 	// Ê¡ÂÔget set·½·¨
 	public int getJobId() {

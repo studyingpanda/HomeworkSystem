@@ -35,7 +35,7 @@ public class CourseDao {
 				return null;
 			}
 		} catch (SQLException e) {
-			System.out.println(e.toString());
+			System.err.println(e.getMessage());
 			return null;
 		} finally {
 			DbUtils.releaseConnection(rs, ps, conn);
@@ -59,6 +59,7 @@ public class CourseDao {
 			// Ö´ÐÐsql
 			return ps.executeUpdate();
 		} catch (SQLException e) {
+			System.err.println(e.getMessage());
 			return 0;
 		} finally {
 			DbUtils.releaseConnection(null, ps, conn);
@@ -78,6 +79,7 @@ public class CourseDao {
 			ps.setInt(1, courseId);
 			return ps.executeUpdate();
 		} catch (SQLException e) {
+			System.err.println(e.getMessage());
 			return 0;
 		} finally {
 			DbUtils.releaseConnection(null, ps, conn);
@@ -101,6 +103,7 @@ public class CourseDao {
 				courses.add(makeOneCourse(rs));
 			}
 		} catch (SQLException e) {
+			System.err.println(e.getMessage());
 		} finally {
 			DbUtils.releaseConnection(rs, ps, conn);
 		}
@@ -125,6 +128,7 @@ public class CourseDao {
 				courses.add(makeOneCourse(rs));
 			}
 		} catch (SQLException e) {
+			System.err.println(e.getMessage());
 		} finally {
 			DbUtils.releaseConnection(rs, ps, conn);
 		}
@@ -159,6 +163,7 @@ public class CourseDao {
 			ps.setInt(3, course.getCourseId());
 			return ps.executeUpdate();
 		} catch (SQLException e) {
+			System.err.println(e.getMessage());
 			return 0;
 		} finally {
 			DbUtils.releaseConnection(rs, ps, conn);

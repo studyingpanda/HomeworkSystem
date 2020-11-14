@@ -33,6 +33,7 @@ public class SelectionDao {
 				selections.add(makeOneSelection(rs));
 			}
 		} catch (SQLException e) {
+			System.err.println(e.getMessage());
 		} finally {
 			DbUtils.releaseConnection(rs, ps, conn);
 		}
@@ -53,6 +54,7 @@ public class SelectionDao {
 			ps.setInt(2, selection.getSelectionCourse());
 			return ps.executeUpdate();
 		} catch (SQLException e) {
+			System.err.println(e.getMessage());
 			return 0;
 		} finally {
 			DbUtils.releaseConnection(null, ps, conn);
@@ -72,6 +74,7 @@ public class SelectionDao {
 			ps.setInt(1, selectionId);
 			return ps.executeUpdate();
 		} catch (SQLException e) {
+			System.err.println(e.getMessage());
 			return 0;
 		} finally {
 			DbUtils.releaseConnection(null, ps, conn);
@@ -95,6 +98,7 @@ public class SelectionDao {
 				selections.add(makeOneSelection(rs));
 			}
 		} catch (SQLException e) {
+			System.err.println(e.getMessage());
 		} finally {
 			DbUtils.releaseConnection(rs, ps, conn);
 		}
@@ -128,6 +132,7 @@ public class SelectionDao {
 			ps.setInt(3, selection.getSelectionId());
 			return ps.executeUpdate();
 		} catch (SQLException e) {
+			System.err.println(e.getMessage());
 			return 0;
 		} finally {
 			DbUtils.releaseConnection(rs, ps, conn);
