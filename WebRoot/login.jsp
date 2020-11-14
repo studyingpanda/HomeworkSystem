@@ -3,30 +3,14 @@
 <html>
   <head>   
     <title>login.jsp</title>
-    <link href="css/login.css" type="text/css" rel="stylesheet"/>
   </head>
   <body>
-  	<div id="top">
-  		培训班作业管理系统登录
-  	</div>
-  	<div id="mid">
-  		<div id="login_input">
-  				<form id="mainForm" method="post" action="/HomeworkSystem/ActionServlet?method=login&entityType=User">
-  					<div class="row">
-			  			<span>编号：</span><input type="text" name="userId" />
-			  		</div>
-			  		<div class="row">
-			  			<span>密码：</span><input type="password" name="userPassword"/>	
-			  		</div>
-			  		<div class="row">
-			  			<input class="submit" type="submit" value="登录"/>
-			  		</div>
-			  	</form>
-  		</div>
-  	</div>
-  	<div id="bottom">
-  		Copyright:PandaBrother 2017.2.22
-  	</div>
-  
+  	<form id="mainForm" method="post" action="/HomeworkSystem/LoginServlet">
+  		请输入用户名：<input type="text" name="userName" />
+  		<br/>
+  		请输入密码：<input type="password" name="userPassword"/>	
+  		<br/>
+  		<input type="submit" value="登录"/>
+  	</form>
   </body>
 </html>
