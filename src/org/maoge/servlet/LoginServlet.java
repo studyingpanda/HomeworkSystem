@@ -1,6 +1,7 @@
 package org.maoge.servlet;
 
 import java.io.IOException;
+import java.util.logging.Level;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.maoge.model.User;
 import org.maoge.service.LoginService;
 import org.maoge.utils.Constants;
+import org.maoge.utils.LogUtils;
 
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {// 用于处理登录请求的LoginServlet
@@ -39,6 +41,8 @@ public class LoginServlet extends HttpServlet {// 用于处理登录请求的LoginServlet
 				page = "tip.jsp";
 			} else {
 				// 登录成功，记录用户信息到Session，同时跳转管理后台页面
+				// 记录日志
+				LogUtils.writeLog(Level.INFO, "登录成功:"+user.getUserName());
 				request.getSession().setAttribute("loginUser", user);
 				page = "index.jsp";
 				// 设置菜单
